@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>io.usa</groupId>
+		<artifactId>doraemon.parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>doraemon.commons</artifactId>
+
+	<packaging>pom</packaging>
+
+
+	<modules>
+		<module>service.api</module>
+		<module>service.bus</module>
+
+		<module>service.api.impl</module>
+		<module>service.bus.impl</module>
+		<module>service.locator</module>
+		<module>service.common</module>
+		<module>service.rest.client</module>
+
+ 
+
+
+		<module>transport.common</module>
+
+		<module>service.db.access</module>
+ 		<module>commons.api</module>
+ 		<module>commons.impl</module>
+ 		<module>commons.exception</module>
+
+		<module>service.security.impl</module>
+ 		<module>zookeeper.client</module>
+		<module>zookeeper.watcher</module>
+		<module>zookeeper.node.register</module>
+
+	</modules>
+	<properties>
+		<slf4j.version>1.6.6</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<httpclient.version>4.2.2</httpclient.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j2.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+
+	</dependencies>
+
+</project>

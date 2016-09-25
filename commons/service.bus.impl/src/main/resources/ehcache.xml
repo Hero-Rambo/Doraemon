@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<ehcache updateCheck="false">    
+      <diskStore path="java.io.tmpdir"/>    
+        
+       <cache name="Services.Registry"    
+        maxElementsInMemory="100"    
+        maxElementsOnDisk="0"    
+        eternal="true"    
+        overflowToDisk="false"    
+        diskPersistent="false"    
+        diskSpoolBufferSizeMB="50"    
+        diskExpiryThreadIntervalSeconds="120"    
+        memoryStoreEvictionPolicy="FIFO"    
+        />  
+        
+        
+      <cache name="Nodes.Registry"    
+        maxElementsInMemory="100"    
+        maxElementsOnDisk="0"    
+        eternal="true"    
+        overflowToDisk="false"    
+        diskPersistent="false"    
+        diskSpoolBufferSizeMB="50"    
+        diskExpiryThreadIntervalSeconds="120"    
+        memoryStoreEvictionPolicy="FIFO"    
+        />    
+        
+        
+<!-- timeToLiveSeconds="169" -->
+  <cache name="Available.Nodes.Cache"    
+        maxElementsInMemory="100"    
+        maxElementsOnDisk="0"    
+        eternal="false"    
+        overflowToDisk="false"    
+        diskPersistent="false"    
+        timeToIdleSeconds="70"    
+            
+        diskSpoolBufferSizeMB="50"    
+        diskExpiryThreadIntervalSeconds="120"    
+        memoryStoreEvictionPolicy="LRU"    
+        />    
+</ehcache>  

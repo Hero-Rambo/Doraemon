@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>io.usa</groupId>
+		<artifactId>doraemon.global</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+ 	<artifactId>doraemon.global.war</artifactId>
+
+ 	
+ 	<packaging>war</packaging>
+
+	<properties>
+		<finalName>global</finalName>
+	</properties>
+
+	<dependencies>
+ 		<dependency>
+			<groupId>io.usa</groupId>
+			<artifactId>commons.exception</artifactId>
+			<version>1.0</version>
+		</dependency>		 
+		<dependency>
+			<groupId>io.usa</groupId>
+			<artifactId>commons.api</artifactId>
+			<version>1.0</version>
+		</dependency>		 
+ 
+		<dependency>
+			<groupId>io.usa</groupId>
+			<artifactId>zookeeper.watcher</artifactId>
+			<version>1.0</version>
+		</dependency>			 
+
+	<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.uuid</groupId>
+			<artifactId>java-uuid-generator</artifactId>
+			<version>3.1.3</version>
+		</dependency>
+		
+
+
+		<dependency>
+			<groupId>io.usa</groupId>
+			<artifactId>doraemon.db.access</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+
+
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>		
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+	</dependencies>
+	
+	
+
+	<build>
+		<finalName>${finalName}</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<packagingExcludes>WEB-INF/lib/*-4.1.3.jar,WEB-INF/lib/*servlet*.jar,</packagingExcludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<tasks>
+								<ant antfile="./build.xml"  target="deploy"/>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>	 
+
+</project>

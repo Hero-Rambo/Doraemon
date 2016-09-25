@@ -1,0 +1,46 @@
+<project default="deploy">
+	<!--	
+E:\apache-tomcat-7.0.26
+-->
+	
+	<property name="tomcat.home" value="G:\Work\tomcat8\apache-tomcat-8-global" />
+
+	<property name="tomcat.deploy.dir" value="${tomcat.home}\webapps" />
+		
+
+	<!--<property name="jboss.home" value="E:\jboss-4.2.3.GA-jdk6" />-->
+	
+	<property name="jboss.home" value="E:\JBoss\jboss-4.2.3.GA-jdk6" />
+	
+	
+	<property name="jboss.deploy.dir" value="${jboss.home}\server\default\deploy" />
+	<!--
+	<property name="deploy.dir" value="${tomcat.home}\webapps">
+	-->
+	
+	
+	<property name="deploy.dir" value="${tomcat.deploy.dir}" />
+	
+	
+	<property name="project.name" value="global" />
+	<target name="deploy">
+
+		
+		<delete>
+			<fileset dir="${deploy.dir}" includes="*${project.name}*.war" />
+		</delete>
+
+		<!-- 
+			<fileset dir="${tomcat.home}\webapps" includes="*${project.name}*" />
+
+-->
+
+		<copy todir="${deploy.dir}">
+			<fileset dir="./target" includes="*${project.name}*.war" />
+		</copy>
+	</target>
+
+
+
+
+</project>
